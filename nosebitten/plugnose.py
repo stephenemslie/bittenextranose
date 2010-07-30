@@ -34,9 +34,9 @@ class BittenNosetests(Plugin):
 
     name = 'bitten'
 
-    def add_options(self, parser, env=os.environ):
+    def options(self, parser, env=os.environ):
         log.debug('Adding options on Bitten plug')
-        Plugin.add_options(self, parser, env)
+        super(BittenNosetests, self).options(parser, env)
         parser.add_option(
             '--xml-results', action='store', dest='xml_results',
             metavar='FILE',
