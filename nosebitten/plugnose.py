@@ -92,8 +92,7 @@ class BittenNoseCoverage(Coverage):
     name = 'bitten-coverage'
 
     def options(self, parser, env=os.environ):
-        Coverage.options(self, parser, env)
-        Plugin.add_options(self, parser, env)
+        super(Coverage, self).options(parser, env)
         parser.add_option(
             '--coverage-summary', action='store', dest='coverage_summary',
             metavar='FILE',
@@ -125,3 +124,4 @@ class BittenNoseCoverage(Coverage):
             fileobj.close()
         buf.seek(0)
         stream.writelines(buf)
+
